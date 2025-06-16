@@ -1,35 +1,28 @@
 /**
- * 🚀 GOOGLE MAPS BUSINESS SCRAPER - COMPLETE WORKING VERSION
- * 
- * Features:
- * - Proven double-scroll method (6→12→18 results tested)
- * - Production-ready error handling
- * - Memory optimized
- * 
- * @version 1.0.0
+ * 🚀 GOOGLE MAPS BUSINESS SCRAPER - PRODUCTION VERSION
+ * Clean version with single export
  */
 
 import { Cluster } from 'puppeteer-cluster';
 import puppeteer from 'puppeteer';
 
-export class GoogleMapsBusinessScraper {
+class GoogleMapsBusinessScraper {
     constructor(options = {}) {
         this.options = {
-            maxConcurrency: options.maxConcurrency ?? 4,
+            maxConcurrency: options.maxConcurrency ?? 2,
             useParallel: options.useParallel ?? false,
             headless: options.headless ?? true,
             maxResults: options.maxResults ?? 50,
-            delay: options.delay ?? 2000,
-            verbose: options.verbose ?? false,
-            retryLimit: options.retryLimit ?? 3,
-            timeout: options.timeout ?? 45000,
+            delay: options.delay ?? 3000,
+            verbose: options.verbose ?? true,
+            retryLimit: options.retryLimit ?? 2,
+            timeout: options.timeout ?? 60000,
             outputFormat: options.outputFormat ?? 'json',
-            maxScrollAttempts: options.maxScrollAttempts ?? 15,
-            scrollDelay: options.scrollDelay ?? 2000,
+            maxScrollAttempts: options.maxScrollAttempts ?? 10,
+            scrollDelay: options.scrollDelay ?? 3000,
             ...options
         };
         
-        // Proven working selectors
         this.selectors = {
             feedContainer: '[role="feed"]',
             resultContainer: '.Nv2PK',
@@ -81,10 +74,8 @@ export class GoogleMapsBusinessScraper {
             const beforeScrollTop = container.scrollTop;
             const beforeHeight = container.scrollHeight;
             
-            // FIRST SCROLL - Triggers loading
             container.scrollTop += 800;
             
-            // SECOND SCROLL - Shows results (with delay)
             setTimeout(() => {
                 container.scrollTop += 200;
             }, 500);
@@ -100,7 +91,7 @@ export class GoogleMapsBusinessScraper {
     }
 
     async handleInfiniteScroll(page, maxResults) {
-        this.log(`📜 Starting proven double-scroll method for ${maxResults} results...`, 'scroll');
+        this.log(`📜 Starting scroll for ${maxResults} results...`, 'scroll');
         
         let scrollAttempts = 0;
         let consecutiveFailures = 0;
@@ -124,15 +115,13 @@ export class GoogleMapsBusinessScraper {
                     this.log(`❌ Scroll failed: ${scrollResult.error}`, 'error');
                     
                     if (consecutiveFailures >= maxConsecutiveFailures) {
-                        this.log(`🛑 Too many scroll failures (${consecutiveFailures})`, 'error');
+                        this.log(`🛑 Too many scroll failures`, 'error');
                         break;
                     }
                     continue;
                 }
 
-                this.log(`✅ Double scroll: ${scrollResult.beforeScrollTop} → ${scrollResult.afterScrollTop}`, 'debug');
                 consecutiveFailures = 0;
-
                 await new Promise(resolve => setTimeout(resolve, this.options.scrollDelay));
 
                 const newResultCount = await page.$$eval(this.selectors.resultContainer, els => els.length);
@@ -239,7 +228,9 @@ export class GoogleMapsBusinessScraper {
                     '--disable-dev-shm-usage',
                     '--disable-accelerated-2d-canvas',
                     '--no-first-run',
-                    '--disable-gpu'
+                    '--disable-gpu',
+                    '--disable-web-security',
+                    '--disable-features=VizDisplayCompositor'
                 ]
             });
 
@@ -255,10 +246,10 @@ export class GoogleMapsBusinessScraper {
             this.log(`🌐 Navigating to: ${searchUrl}`);
             await this.page.goto(searchUrl, {
                 waitUntil: 'networkidle2',
-                timeout: 30000
+                timeout: 45000
             });
 
-            await this.page.waitForSelector(this.selectors.resultContainer, { timeout: 20000 });
+            await this.page.waitForSelector(this.selectors.resultContainer, { timeout: 30000 });
             await new Promise(resolve => setTimeout(resolve, this.options.delay));
             
             const initialResults = await this.page.$$eval(this.selectors.resultContainer, els => els.length);
@@ -288,10 +279,7 @@ export class GoogleMapsBusinessScraper {
             for (let i = 0; i < resultsToProcess; i++) {
                 const business = businessUrls[i];
                 
-                this.log(`\n${'='.repeat(60)}`);
                 this.log(`🏢 Processing Business ${i + 1} of ${resultsToProcess}`);
-                this.log(`URL: ${business.url.slice(0, 80)}...`);
-                this.log(`${'='.repeat(60)}`);
 
                 try {
                     await this.page.goto(business.url, {
@@ -299,8 +287,8 @@ export class GoogleMapsBusinessScraper {
                         timeout: this.options.timeout
                     });
                     
-                    await this.page.waitForSelector(this.selectors.businessName, { timeout: 10000 });
-                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    await this.page.waitForSelector(this.selectors.businessName, { timeout: 15000 });
+                    await new Promise(resolve => setTimeout(resolve, 2000));
 
                     const businessDetails = await this.extractBusinessData(this.page, query, i + 1);
                     
@@ -315,7 +303,6 @@ export class GoogleMapsBusinessScraper {
 
                     if (i < resultsToProcess - 1) {
                         const delay = this.options.delay + Math.random() * 1000;
-                        this.log(`⏳ Waiting ${(delay/1000).toFixed(1)}s before next business...`, 'debug');
                         await new Promise(resolve => setTimeout(resolve, delay));
                     }
 
@@ -368,5 +355,5 @@ export class GoogleMapsBusinessScraper {
     }
 }
 
-// ✅ IMPORTANT: Export statement for proper module import
+// Single export statement - no duplicates
 export { GoogleMapsBusinessScraper };
