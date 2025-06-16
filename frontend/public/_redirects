@@ -1,0 +1,11 @@
+// ===== public/_redirects (For Render/Netlify deployment) =====
+// Copy this to frontend/public/_redirects
+
+# SPA fallback
+/*    /index.html   200
+
+# API proxy (if needed)
+/api/*  https://leadgen-copilot-backend.onrender.com/api/:splat  200
+
+# Force HTTPS
+http://leadgen-copilot-frontend.onrender.com/*  https://leadgen-copilot-frontend.onrender.com/:splat  301!

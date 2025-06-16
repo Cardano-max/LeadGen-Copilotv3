@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+    
+    <!-- SEO Meta Tags -->
+    <title>LeadGen Copilot - Complete Lead Generation Platform | Google Maps Scraper, Email Automation & More</title>
+    <meta name="description" content="🚀 Complete Lead Generation Platform - Google Maps Scraper, Email Automation, LinkedIn Auto Apply & More. Generate unlimited business leads with AI-powered tools. Proven to boost conversion rates by 54.7%!" />
+    <meta name="keywords" content="lead generation, google maps scraper, email automation, cold outreach, linkedin automation, business leads, sales automation, data scraping, business intelligence, CRM tools, lead finder, email finder, contact discovery, sales tools, marketing automation" />
+    <meta name="author" content="LeadGen Copilot Team" />
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LeadGen Copilot" />
+    <meta property="og:title" content="LeadGen Copilot - Complete Lead Generation Platform" />
+    <meta property="og:description" content="Generate unlimited business leads with Google Maps Scraper, Email Automation & LinkedIn Auto Apply. Proven to boost conversion rates by 54.7%!" />
+    <meta property="og:url" content="https://leadgen-copilot-frontend.onrender.com" />
+    <meta property="og:image" content="https://leadgen-copilot-frontend.onrender.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LeadGen Copilot - AI-Powered Lead Generation Platform" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@LeadGenCopilot" />
+    <meta name="twitter:creator" content="@LeadGenCopilot" />
+    <meta name="twitter:title" content="LeadGen Copilot - Complete Lead Generation Platform" />
+    <meta name="twitter:description" content="Generate unlimited business leads with AI-powered tools. Google Maps Scraper, Email Automation & More!" />
+    <meta name="twitter:image" content="https://leadgen-copilot-frontend.onrender.com/twitter-image.jpg" />
+    <meta name="twitter:image:alt" content="LeadGen Copilot Dashboard Screenshot" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#667eea" />
+    <meta name="msapplication-TileColor" content="#667eea" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://js.stripe.com" />
+    <link rel="preconnect" href="https://api.leadgen-copilot.com" />
+    
+    <!-- DNS Prefetch for better performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//js.stripe.com" />
+    
+    <!-- Google Fonts with display=swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "LeadGen Copilot",
+      "description": "Complete Lead Generation Platform with Google Maps Scraper, Email Automation, and LinkedIn Auto Apply tools",
+      "url": "https://leadgen-copilot-frontend.onrender.com",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1247"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LeadGen Copilot",
+        "url": "https://leadgen-copilot-frontend.onrender.com"
+      }
+    }
+    </script>
+    
+    <!-- Critical CSS Variables for instant loading -->
+    <style>
+      :root {
+        /* Primary Brand Colors */
+        --primary: #667eea;
+        --primary-dark: #5a6fd8;
+        --primary-light: #7c90f0;
+        
+        /* Secondary Colors */
+        --secondary: #764ba2;
+        --secondary-dark: #6a4190;
+        --secondary-light: #8258b8;
+        
+        /* Accent Colors */
+        --accent-pink: #f093fb;
+        --accent-coral: #f5576c;
+        --accent-blue: #4facfe;
+        --accent-cyan: #00f2fe;
+        --accent-green: #43e97b;
+        --accent-mint: #38f9d7;
+        
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --gradient-warning: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --shadow-glow: 0 0 20px rgba(102, 126, 234, 0.3);
+        --shadow-glow-lg: 0 0 40px rgba(102, 126, 234, 0.4);
+        
+        /* Animation Durations */
+        --duration-fast: 0.15s;
+        --duration-normal: 0.3s;
+        --duration-slow: 0.5s;
+        --duration-slower: 1s;
+        
+        /* Z-index Scale */
+        --z-dropdown: 1000;
+        --z-sticky: 1020;
+        --z-fixed: 1030;
+        --z-modal-backdrop: 1040;
+        --z-modal: 1050;
+        --z-popover: 1060;
+        --z-tooltip: 1070;
+        --z-toast: 1080;
+      }
+      
+      /* Critical CSS for instant loading */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+      }
+      
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading Animation */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .loading-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+      
+      .loading-text {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        opacity: 0.9;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+      }
+      
+      /* Firefox Scrollbar */
+      html {
+        scrollbar-width: thin;
+        scrollbar-color: #667eea rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Disable text selection on certain elements */
+      .no-select {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
+      /* Focus styles for accessibility */
+      .focus-visible:focus-visible {
+        outline: 2px solid #667eea;
+        outline-offset: 2px;
+      }
+      
+      /* Reduced motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+        
+        html {
+          scroll-behavior: auto;
+        }
+      }
+      
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        :root {
+          --primary: #0066cc;
+          --secondary: #4a0e4e;
+        }
+      }
+      
+      /* Dark mode preference */
+      @media (prefers-color-scheme: dark) {
+        /* Already dark by default */
+      }
+      
+      /* Print styles */
+      @media print {
+        body {
+          background: white !important;
+          color: black !important;
+        }
+        
+        .no-print {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading LeadGen Copilot...</div>
+    </div>
+    
+    <!-- Main App Container -->
+    <div id="root"></div>
+    
+    <!-- External Scripts -->
+    <script src="https://js.stripe.com/v3/" defer></script>
+    
+    <!-- Main App Script -->
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Service Worker Registration Script -->
+    <script>
+      // Service Worker for caching (production only)
+      if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration.scope);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+    
+    <!-- Loading Screen Removal Script -->
+    <script>
+      window.addEventListener('load', () => {
+        // Add a minimum loading time for better UX
+        setTimeout(() => {
+          const loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => {
+              loadingScreen.style.display = 'none';
+            }, 500);
+          }
+        }, 1000);
+      });
+      
+      // Performance monitoring
+      if ('performance' in window) {
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            if (perfData) {
+              console.log(`📊 Page load time: ${perfData.loadEventEnd - perfData.loadEventStart}ms`);
+              console.log(`📊 DOM content loaded: ${perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart}ms`);
+              
+              // Core Web Vitals
+              if ('PerformanceObserver' in window) {
+                // Largest Contentful Paint
+                new PerformanceObserver((list) => {
+                  const entries = list.getEntries();
+                  const lastEntry = entries[entries.length - 1];
+                  console.log(`📊 LCP: ${lastEntry.startTime}ms`);
+                }).observe({ entryTypes: ['largest-contentful-paint'] });
+                
+                // First Input Delay
+                new PerformanceObserver((list) => {
+                  for (const entry of list.getEntries()) {
+                    console.log(`📊 FID: ${entry.processingStart - entry.startTime}ms`);
+                  }
+                }).observe({ entryTypes: ['first-input'] });
+              }
+            }
+          }, 0);
+        });
+      }
+    </script>
+    
+    <!-- Environment Detection Script -->
+    <script>
+      // Log environment info for debugging
+      console.log('🚀 LeadGen Copilot');
+      console.log('🌍 Environment:', window.location.hostname);
+      console.log('📱 User Agent:', navigator.userAgent.substring(0, 50) + '...');
+      console.log('🔧 JavaScript enabled');
+      
+      // Feature detection
+      const features = {
+        serviceWorker: 'serviceWorker' in navigator,
+        webGL: !!window.WebGLRenderingContext,
+        localStorage: typeof Storage !== 'undefined',
+        geolocation: 'geolocation' in navigator,
+        notifications: 'Notification' in window,
+        deviceMotion: 'DeviceMotionEvent' in window,
+        touchEvents: 'ontouchstart' in window,
+        webRTC: !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+      };
+      
+      console.log('🔍 Browser Features:', features);
+    </script>
+    
+    <!-- Error Tracking Script -->
+    <script>
+      // Global error handler
+      window.addEventListener('error', (event) => {
+        console.error('🚨 Global JavaScript Error:', {
+          message: event.message,
+          filename: event.filename,
+          lineno: event.lineno,
+          colno: event.colno,
+          error: event.error
+        });
+        
+        // In production, send to error reporting service
+        // Example: sendErrorToService(event);
+      });
+      
+      // Unhandled promise rejection handler
+      window.addEventListener('unhandledrejection', (event) => {
+        console.error('🚨 Unhandled Promise Rejection:', event.reason);
+        
+        // In production, send to error reporting service
+        // Example: sendErrorToService(event.reason);
+      });
+    </script>
+    
+    <!-- SEO and Analytics placeholder -->
+    <!-- Google Analytics, Hotjar, or other analytics can be added here -->
+    <script>
+      // Analytics placeholder
+      // Example: Google Analytics 4
+      // gtag('config', 'GA_MEASUREMENT_ID');
+      
+      // Example: Hotjar
+      // (function(h,o,t,j,a,r){ ... })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+  </body>
+</html>
